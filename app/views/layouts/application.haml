@@ -12,7 +12,8 @@
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-header
-          %span.navbar-brand #{AppConfig.workshops_name}
+          
+        = link_to "#{AppConfig.workshops_name}", root_path, class: "navbar-brand"
         %p.navbar-text.navbar-right
           Links should go here
     .container-fluid
