@@ -1,17 +1,23 @@
 %p#notice= notice
 
-%p
-  %h1
-    = category.name
+
+%h1
+  Category:
+  = category.name
+
+= render 'shared/error_messages', object: product
 
 %p
   %h3 Products
-  %ol
-  - category.products.each do |product|
-    %li
-      = link_to product.title, category_product_path(category, product)
+  %ul
+    - category.products.each do |product|
+      %li
+        = link_to product.title, category_product_path(category, product)
 
-%p
+  - if category.products.empty?
+    no products
+
+- if current_user
   %h4.newHidden
     New product 
     %span.arrow &#9660;
@@ -20,7 +26,8 @@
       .hiddenForm
         = render 'products/form'
 
-= link_to 'Edit category', edit_category_path(category), class: "btn btn-primary"
-= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+- if current_user && current_user.admin?
+  = link_to 'Edit category', edit_category_path(category), class: "btn btn-primary"
+  = link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %br
 = link_to '<< Back', categories_path

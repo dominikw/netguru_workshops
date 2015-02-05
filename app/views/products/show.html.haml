@@ -1,8 +1,11 @@
 %p#notice= notice
 
-%p
-  %b Title:
+%h1
+  Product:
   = product.title
+
+= render 'shared/error_messages', object: review
+
 %p
   %b Description:
   = product.description
@@ -17,7 +20,10 @@
 %h3 Reviews
 = render product.reviews
 
-%p
+- if product.reviews.empty?
+  no reviews
+
+- if current_user
   %h4.newHidden
     New review 
     %span.arrow &#9660;
@@ -26,7 +32,8 @@
       .hiddenForm
         = render 'reviews/form'
 
-= link_to 'Edit product', edit_category_product_path(category, product), class: "btn btn-primary"
-= link_to 'Delete', category_product_path(category, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+- if product_owner?(product) || is_admin?
+  = link_to 'Edit product', edit_category_product_path(category, product), class: "btn btn-primary"
+  = link_to 'Delete', category_product_path(category, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %br
-= link_to '<< Back', categories_path
+= link_to '<< Back', category_path(category)

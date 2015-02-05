@@ -6,10 +6,14 @@
   color: #3c6275;
 }
 
-.alert-error {
+.alert-error, .alert-alert, #error_explanation {
 	background-color: #f2dede;
   border-color: #ebccd1;
   color: #a94442;
+}
+
+#error_explanation {
+	border: 1px solid;
 }
 
 h1 {
@@ -24,4 +28,8 @@ h4.newHidden {
 
 .hiddenForm {
 	overflow: hidden;
+}
+
+ul li a {
+	font-size: 1.6em;
 }

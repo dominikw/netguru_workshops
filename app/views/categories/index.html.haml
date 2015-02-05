@@ -1,9 +1,12 @@
 %h1 Categories
 
-- categories.each do |category|
-
-  = link_to category.name, category
+%ul
+  - categories.each do |category|
+    %li=link_to category.name, category
+- if categories.empty?
+  no categories
 
 %br
 
-= link_to 'New Category', new_category_path, class: "btn btn-primary"
+- if current_user && current_user.admin?
+  = link_to 'New Category', new_category_path, class: "btn btn-primary"

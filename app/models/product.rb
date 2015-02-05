@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   validates :description, presence: true
   validates :price, presence: true, 
   									format: { with: /\A[\d]+\.?[\d]{0,2}\Z/,
-  									message: "Price can have maximum 2 decimal places." },
+  									message: "can have maximum 2 decimal places." },
   					numericality: { greater_than: 0 }
 
 

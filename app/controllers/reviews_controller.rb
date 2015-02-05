@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
   expose(:review)
   expose(:product)
+  expose(:category) {product.category}
 
   def edit
   end

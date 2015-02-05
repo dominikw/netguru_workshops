@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
   has_many :products, dependent: :destroy
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end
