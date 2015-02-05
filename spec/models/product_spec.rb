@@ -12,6 +12,11 @@ describe Product do
       it 'is limited to two decimal places' do
         expect(product).to_not be_valid
       end
+
+      it 'must be grater than zero' do
+        product.price = -1.5
+        expect(product).to_not be_valid
+      end
     end
 
     describe '#average_rating' do
