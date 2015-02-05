@@ -5,7 +5,11 @@ class Product < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :price, presence: true, format: { with: /\A[\d]+\.?[\d]{0,2}\Z/, message: "Price can have maximum 2 decimal places." } 
+  validates :price, presence: true, 
+  									format: { with: /\A[\d]+\.?[\d]{0,2}\Z/,
+  									message: "Price can have maximum 2 decimal places." },
+  					numericality: { greater_than: 0 }
+
 
   def average_rating
   	self.reviews.average(:rating).to_f
