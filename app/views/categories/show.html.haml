@@ -12,9 +12,15 @@
       = link_to product.title, category_product_path(category, product)
 
 %p
-  %h3 New product
-  = render 'products/form'
+  %h4.newHidden
+    New product 
+    %span.arrow &#9660;
+  .row
+    .col-md-5
+      .hiddenForm
+        = render 'products/form'
 
-= link_to 'Edit category', edit_category_path(category)
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+= link_to 'Edit category', edit_category_path(category), class: "btn btn-primary"
+= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+%br
+= link_to '<< Back', categories_path
