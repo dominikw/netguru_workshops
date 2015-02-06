@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %h1
   Product:
   = product.title
@@ -22,9 +20,10 @@
 
 - if product.reviews.empty?
   no reviews
+  %br
 
 - if current_user
-  %h4.newHidden
+  %span.newHidden
     New review 
     %span.arrow &#9660;
   .row

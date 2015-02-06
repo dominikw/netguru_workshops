@@ -1,4 +1,12 @@
-%p= review.content
 %p
-  %b= review.rating
-  %em= review.decorate.author
+  %span.reviewAuthor
+    %b 
+      = review.decorate.author
+    = review.created_at.strftime("on %d-%m-%y")
+
+%p.reviewRating
+  %b Rating:
+  = review.rating
+
+%p.reviewContent
+  = review.content
