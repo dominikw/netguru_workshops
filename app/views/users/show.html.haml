@@ -20,7 +20,7 @@
     Member since:
   = user.created_at.strftime("%d-%m-%Y")
 
-%h3 Products
+%h2 Products
 %ul.myProducts
   - user.products.each do |product|
     %li
@@ -29,7 +29,7 @@
 - if user.products.empty?
   no products
 
-%h3 Last 5 reviews
+%h2 Last reviews
 = render reviews
 - if reviews.empty?
   no reviews

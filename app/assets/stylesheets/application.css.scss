@@ -101,3 +101,14 @@ ul.categories, ul.products {
 		font-size: 0.9em;
 	}
 }
+
+footer.pageFooter {
+  margin-top: 90px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+
+  small {
+	  float: left;
+	}
+}
