@@ -9,10 +9,11 @@
     Full name:
   = user.decorate.fullname
 
-%p
-  %b 
-    Email:
-  = user.email
+- if user == current_user
+  %p
+    %b 
+      Email:
+    = user.email
 
 %p
   %b 
