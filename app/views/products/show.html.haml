@@ -12,8 +12,12 @@
   = product.price
 
 %p
-  %b Category
+  %b Category:
   = link_to category.name, category_path(category)
+
+%p
+  %b Average rating:
+  = product.average_rating
 
 %h3 Reviews
 = render product.reviews

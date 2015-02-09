@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
 
 
   def average_rating
-  	self.reviews.average(:rating).to_f
+  	self.reviews.average(:rating).to_f.round(2)
   end
 
 end
