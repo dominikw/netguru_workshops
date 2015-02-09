@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+
 	devise_for :users
 
   resources :categories do
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
       resources :reviews
     end
   end
-
+  
+  get 'users/:id', to: 'users#show', as: 'user'
   root 'categories#index'
 end

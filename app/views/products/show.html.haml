@@ -13,7 +13,7 @@
 
 %p
   %b Category
-  = category.name
+  = link_to category.name, category_path(category)
 
 %h3 Reviews
 = render product.reviews
@@ -35,4 +35,4 @@
   = link_to 'Edit product', edit_category_product_path(category, product), class: "btn btn-primary"
   = link_to 'Delete', category_product_path(category, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %br
-= link_to '<< Back', category_path(category)
+= link_to '<< Back', category_path(category), class: "back"

@@ -1,0 +1,34 @@
+%h1 User profile
+
+- if user == current_user
+  = link_to "Edit account", edit_user_registration_path, class: "btn btn-primary"
+  = link_to "Delete account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger deleteAccount"
+
+%p.fullName
+  %b 
+    Full name:
+  = user.decorate.fullname
+
+%p
+  %b 
+    Email:
+  = user.email
+
+%p
+  %b 
+    Member since:
+  = user.created_at.strftime("%d-%m-%Y")
+
+%h3 Products
+%ul.myProducts
+  - user.products.each do |product|
+    %li
+      = link_to product.title, category_product_path(product.category, product)
+
+- if user.products.empty?
+  no products
+
+%h3 Last 5 reviews
+= render reviews
+- if reviews.empty?
+  no reviews

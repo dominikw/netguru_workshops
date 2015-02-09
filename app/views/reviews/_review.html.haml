@@ -1,8 +1,14 @@
 %p
   %span.reviewAuthor
     %b 
-      = review.decorate.author
-    = review.created_at.strftime("on %d-%m-%y")
+      = link_to review.decorate.author, user_path(review.user)
+    %span.date
+      = review.created_at.strftime("%d-%m-%y")
+
+- if params[:action] == "show" && params[:controller] == "users"
+  %p.reviewFor
+    %b For:
+    = link_to review.product.title, category_product_path(review.product.category, review.product)
 
 %p.reviewRating
   %b Rating:

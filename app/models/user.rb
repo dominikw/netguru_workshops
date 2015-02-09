@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :lastname, presence: true
 
-  has_many :reviews
-  has_many :products
+  has_many :reviews, dependent: :destroy
+  has_many :products, dependent: :destroy
 end
