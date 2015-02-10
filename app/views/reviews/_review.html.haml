@@ -1,7 +1,7 @@
 %p
   %span.reviewAuthor
     %b 
-      = link_to review.decorate.author, user_path(review.user)
+      = link_to review.author, user_path(review.user)
     %span.date
       = review.created_at.strftime("%d-%m-%y")
 
