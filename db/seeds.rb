@@ -72,17 +72,3 @@ products << snowboard
  						user: users[rand(0..5)]
 					)
 end
-
-# review1 = Review.create(
-# 						content: "The best I've ever ridden!",
-# 						rating: 5,
-# 						product: rollerblade,
-# 						user: users[0]
-# 					)
-
-# review2 = Review.create(
-# 						content: "The best I've ever ridden!",
-# 						rating: 5,
-# 						product: rollerblade,
-# 						user: users[0]
-# 					)

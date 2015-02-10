@@ -1,35 +1,10 @@
-!!!
-%html{ lang: 'en' }
-  %head
-    %meta{ charset: 'utf-8' }/
-    %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
-    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
-    = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
+= render 'layouts/header' 
 
-  %body
-    %nav.navbar.navbar-default.navbar-inverse
-      .container-fluid
-        .navbar-header
-          
-        = link_to "#{AppConfig.workshops_name}", root_path, class: "navbar-brand logo"
-        %p.navbar-text.navbar-right
-          %span.links
-            - if signed_in?
-              = link_to current_user.email, user_path(current_user)
-              |
-              = link_to "logout", destroy_user_session_path, method: :delete
-            - elsif
-              = link_to "log in", new_user_session_path
-              |
-              = link_to "sign up", new_user_registration_path 
+.container
+  - flash.each do |message_type, message|
+    .alert{ class: "alert-#{message_type}"}
+      = message
+      
+  = yield
 
-    .container
-      - flash.each do |message_type, message|
-        .alert{ class: "alert-#{message_type}"}
-          = message
-          
-      = yield
-
-      = render 'layouts/footer'
+  = render 'layouts/footer'

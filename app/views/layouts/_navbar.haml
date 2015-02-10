@@ -1,0 +1,15 @@
+%nav.navbar.navbar-default.navbar-inverse
+  .container-fluid
+    .navbar-header
+      
+    = link_to "#{AppConfig.workshops_name}", root_path, class: "navbar-brand logo"
+    %p.navbar-text.navbar-right
+      %span.links
+        - if signed_in?
+          = link_to current_user.email, user_path(current_user)
+          |
+          = link_to "logout", destroy_user_session_path, method: :delete
+        - elsif
+          = link_to "log in", new_user_session_path
+          |
+          = link_to "sign up", new_user_registration_path
