@@ -3,9 +3,7 @@ require 'spec_helper'
 describe CategoriesController do
 
   let(:valid_attributes) { { name: 'MyString'} }
-
   let(:valid_session) { {} }
-
   let(:user) { build(:user) }
 
   before do

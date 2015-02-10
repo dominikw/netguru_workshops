@@ -5,6 +5,8 @@ describe Product do
     it { should validate_presence_of :title }
     it { should validate_presence_of :description }
     it { should validate_presence_of :price }
+    it { should belong_to :user }
+    it { should belong_to :category }
 
     describe '#price' do
       let(:product) { build(:product, price: 1.234) }
